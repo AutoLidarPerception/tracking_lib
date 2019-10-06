@@ -1,0 +1,53 @@
+tracking: {
+  ##----------------- Tracking-help Segmentation
+  # threshold used for judging "contains"
+  # type: float
+  # default: 1.0 (>0.6 means without tracking help)
+  threshold_contian_IoU: 0.01,
+
+  TrackingWorker: {
+      ##----------------- Matcher: tracker<->observed object association
+      matcher_method_name: "hungarian_matcher",
+      matcher_match_distance_maximum: 4.0,
+      # motion consistency
+      matcher_location_distance_weight: 0.6,
+      matcher_direction_distance_weight: 0.2,
+      # appearance consistency
+      matcher_bbox_size_distance_weight: 0.1,
+      matcher_point_num_distance_weight: 0.1,
+      matcher_histogram_distance_weight: 0.5,
+
+      ##----------------- Tracker
+      # Tracker Filter setup
+      filter_method_name: "robust_kalman_filter",
+      filter_use_adaptive: true,
+      # equals to matcher_match_distance_maximum
+      filter_association_score_maximum: 4.0,
+      filter_measurement_noise: 0.4,
+      filter_initial_velocity_noise: 5.0,
+      # | xy_propagation_noise    0           0          |
+      # |         0   xy_propagation_noise    0          |
+      # |         0               0  z_propagation_noise |
+      filter_xy_propagation_noise: 10.0,
+      filter_z_propagation_noise: 10.0,
+      filter_breakdown_threshold_maximum: 10.0,
+      # Basic Tracker setup
+      tracker_cached_history_size_maximum: 5,
+      tracker_consecutive_invisible_maximum: 1,
+      tracker_visible_ratio_minimum: 0.6,
+      tracker_acceleration_noise_maximum: 5,
+      tracker_speed_noise_maximum: 0.4,
+
+      ##----------------- Tracking Objects collect conditions
+      # If true, histograms between tracker and observation are considered
+      # type: bool, int
+      # default:
+      tracking_use_histogram_for_match: false,
+      tracking_histogram_bin_size: 10,
+      # initial tracker ages 1
+      #  1 for more N-samples
+      tracking_collect_age_minimum: 1,
+      # sometimes, detection failed
+      tracking_collect_consecutive_invisible_maximum: 1,
+  }
+}

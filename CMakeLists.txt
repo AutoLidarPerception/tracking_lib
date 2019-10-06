@@ -43,10 +43,10 @@ find_package(Eigen3 REQUIRED)
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-    CATKIN_DEPENDS object_builders_lib
+    CATKIN_DEPENDS object_builders_lib feature_extractors_lib
     #  DEPENDS system_lib
     INCLUDE_DIRS include
-    LIBRARIES tracking_lib
+    LIBRARIES ${PROJECT_NAME}
 )
 
 
@@ -95,4 +95,4 @@ target_link_libraries(${PROJECT_NAME}
 #############
 
 ## Comment following line to avoid generating demo node
-#add_subdirectory(example)
+add_subdirectory(samples)

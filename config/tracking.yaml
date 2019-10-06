@@ -1,0 +1,25 @@
+tracking: {
+  local_frame_id: "velodyne",
+  global_frame_id: "world",
+  # Query Ros TF timeout in ms. ros::Duration time.
+  # type: int
+  # default: 10
+  tf_timeout_ms: 1,
+
+  # segmented point clouds directly from segment node
+  sub_pcs_segmented_topic: "/segment/clouds_segmented",
+  sub_pcs_queue_size: 1,
+
+  # intermediate segments
+  pub_segments_coarse_topic: "/tracking/segments_coarse",
+  pub_segments_predict_topic: "/tracking/segments_predict",
+  pub_segments_topic: "/tracking/segments",
+  # output of tracking system
+  pub_output_objects_topic: "/tracking/tracking_objects",
+  pub_output_trajectories_topic: "/tracking/fixed_trajectories",
+  # intermediate visualization
+  pub_tracking_objects_topic: "/tracking/objects",
+  pub_tracking_objects_cloud_topic: "/tracking/clouds",
+  pub_tracking_objects_velocity_topic: "/tracking/objects_vel",
+  pub_tracking_objects_trajectory_topic: "/tracking/trajectory",
+}

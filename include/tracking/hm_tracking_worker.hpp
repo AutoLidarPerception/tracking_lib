@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *****************************************************************************/
+
 #ifndef TRACKING_INCLUDE_TRACKING_HM_TRACKING_WORKER_HPP_
 #define TRACKING_INCLUDE_TRACKING_HM_TRACKING_WORKER_HPP_
 
@@ -298,4 +299,4 @@ class HmTrackingWorker : public BaseTrackingWorker {
 }  // namespace tracking
 }  // namespace autosense
 
-#endif  // HM_TRACKING_WORKER_HPP_
+#endif  // TRACKING_INCLUDE_TRACKING_HM_TRACKING_WORKER_HPP_
