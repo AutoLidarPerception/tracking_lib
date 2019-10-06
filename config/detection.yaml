@@ -1,0 +1,26 @@
+detect: {
+  frame_id: "velodyne",
+
+  sub_pc_topic: "/kitti/points_raw",
+  sub_pc_queue_size: 1,
+
+  pub_pcs_segmented_topic: "/segment/clouds_segmented",
+
+  ## Important to use roi filter for "Ground remover"
+  #use_roi_filter: false,
+  use_roi_filter: true,
+
+  ## Ground Segmenter
+  # type: string
+  # default: "GroundPlaneFittingSegmenter"
+  ground_remover_type: "GroundPlaneFittingSegmenter",
+  #ground_remover_type: "GroundRANSACSegmenter",
+  ## Segment non-ground point cloud, otherwise, only Ground Segmenter
+  # default: false
+  use_non_ground_segmenter: true,
+  #use_non_ground_segmenter: false,
+  ## non-ground segmenter type
+  # default: "RegionEuclideanSegmenter"
+  non_ground_segmenter_type: "RegionEuclideanSegmenter",
+  #non_ground_segmenter_type: "EuclideanSegmenter",
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+    <!-- Launch detection_node -->
+    <node name="detection_node" pkg="tracking_lib" type="tracking_lib_detection_node" output="screen">
+        <rosparam command="load" file="$(find tracking_lib)/config/detection.yaml"/>
+        <rosparam command="load" file="$(find tracking_lib)/config/kitti/Segmenter.yaml"/>
+    </node>
+
+    <!-- Launch tracking_node -->
+    <node name="tracking_node" pkg="tracking_lib" type="tracking_lib_tracking_node" output="screen">
+        <rosparam command="load" file="$(find tracking_lib)/config/tracking.yaml"/>
+        <rosparam command="load" file="$(find tracking_lib)/config/kitti/TrackingWorker.yaml"/>
+    </node>
+
+    <!-- Launch rviz for visualization -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find tracking_lib)/rviz/demo.rviz"/>
+</launch>
