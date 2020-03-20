@@ -58,7 +58,7 @@
 
 ## TODO lists
 ### Non-ground Segmenters
-- [x] **Tracking-help Segmentation**. IV, 2012. Not yet in this repository.
+- [x] **Tracking-help Segmentation**. IV, 2012. A basic implementation in [tracking_node](./samples/tracking_node.cpp)
     ```bibtex
     @inproceedings{himmelsbach2012tracking,
       title={Tracking and classification of arbitrary objects with bottom-up/top-down detection},
