@@ -14,7 +14,12 @@
  * limitations under the License.
  *****************************************************************************/
 #include "tracking/hm_tracking_worker.hpp"
+
 #include <ros/ros.h>
+#include <string>   // std::string
+#include <vector>   // std::vector
+#include <numeric>  // std::iota
+#include <utility>  // std::make_pair
 #include <Eigen/Core>
 
 #include "common/time.hpp"
